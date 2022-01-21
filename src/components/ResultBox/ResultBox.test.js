@@ -55,4 +55,11 @@ describe('Component ResultBox', () => {
         });
         cleanup()
     }
+
+    it('should render proper info about error when negative value', () => {
+        render(<ResultBox from={'PLN'} to={'USD'} amount={-200} />);
+
+        const output = screen.getByTestId('output');
+        expect(output).toHaveTextContent('Wrong value...');
+    });
 });
